@@ -1,0 +1,582 @@
+.products {
+ 
+    max-width: 1200px; /* Sayfanın maksimum genişliğini belirleyelim */
+   
+    align-items: center;
+    flex-wrap: wrap;
+    overflow-x: hidden; /* Yatay kaydırmayı engelleyelim */
+}
+
+.bulk-action-panel {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .sorting-panel {
+    
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+   
+  }
+  .sorting-panel label {
+    font-weight: bold;
+  }
+
+  .sorting-panel select {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 5px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background 0.3s;
+    
+  }
+
+  .bulk-action-panel button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+   
+    
+  }
+
+/* Products.css */
+/* Products.css */
+
+/* Liste Görünümü */
+.product-list.list-view {
+    display: block;
+  }
+  
+  .product-item.list-view {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+  
+  /* Grid Görünümü */
+  .product-list.grid-view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .product-item.grid-view {
+    width: calc(33.333% - 10px); /* Ürünler arasında 10px boşluk bırak */
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 10px;
+  }
+  
+  /* Görünüm Modu Butonları */
+  .view-mode-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+
+  .delete-button {
+    background-color: #fb0317;
+    color: white;
+    border: none;
+    padding: 10px 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .delete-button:hover {
+    background-color: #d62839;
+  }
+
+  .copy-button {
+    background-color: #dfc623;
+    color: white;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border-color: #dfc623;
+    cursor: pointer;
+
+   
+
+  }
+
+  .copy-button:hover {
+    background-color: #d9b11b;
+  }
+  
+  .view-mode-buttons button {
+    margin-left: 10px;
+    padding: 5px 10px;
+  }
+  
+  
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+  
+  
+  .bulk-action-panel button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .bulk-action-panel button:hover {
+    background-color: #d62839;
+  }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.pagination button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #d62839;
+}
+
+.pagination span {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+.pagination select {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.pagination select:hover {
+    background-color: #d62839;
+}
+
+
+
+.product-price {
+    font-weight: bold;
+    color: #e63946;
+    cursor: pointer;
+}
+
+.product-price:hover {
+    text-decoration: underline;
+}
+
+.product-price input {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.product-price button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.product-price button:hover {
+    background-color: #d62839;
+}
+
+.price-editor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.price-input {
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.save-button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.save-button:hover {
+    background-color: #d62839;
+}
+.filter-button {
+    background-color: #2a9d8f; /* Farklı bir renk */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .filter-button:hover {
+    background-color: #21867a; /* Hover durumunda farklı bir renk */
+  }
+  
+  .filter-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .filter-panel div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .filter-panel label {
+    font-weight: bold;
+  }
+  
+  .filter-panel input,
+  .filter-panel select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .filter-panel button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .filter-panel button:hover {
+    background-color: #d62839;
+  }
+
+  /* Existing styles */
+
+/* Add styles for the filter panel and search button */
+.filter-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .filter-checkboxes {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .filter-checkboxes label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    background-color: #e63946;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .search-button:hover {
+    background-color: #d62839;
+  }
+  
+  
+
+.checkbox {
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.selection-popup {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e63946;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s;
+    opacity: 0.9;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.active-action-panel {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    flex-wrap: wrap; /* Öğelerin taşmaması için sarılmasını sağlayalım */
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+
+}
+
+.active-action-panel button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.active-action-panel button:hover {
+    background-color: #d62839;
+}
+
+.product-list {
+    list-style-type: none;
+    margin-top: 10px;
+    padding: 0; /* İçerik taşmaması için kenar boşluklarını sıfırlayalım */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+
+    overflow-x: auto;
+}
+
+.marketplace-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.marketplace-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.marketplace-button img {
+    width: 60px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.marketplace-button:hover {
+    transform: scale(1.1);
+}
+
+.marketplace-button.not-on-sale {
+    filter: grayscale(100%);
+    opacity: 0.5;
+    filter: contrast(0.5);
+}
+
+.marketplace-button.not-on-sale::after {
+    content: attr(title);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    display: none;
+}
+
+.marketplace-button:hover::after {
+    display: block;
+}
+
+.page-title {
+    color: #e63946;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.product-item {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Öğelerin taşmaması için sarılmasını sağlayalım */
+    width: 100%; /* Öğelerin genişliğini sınırlayalım */
+}
+
+.product-item:hover {
+    background-color: #f1f1f1;
+}
+
+.product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.product-image:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+.product-details {
+    flex-grow: 1;
+}
+
+.product-details h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.details-button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.details-button:hover {
+    background-color: #d62839;
+}
+
+.product-item.not-on-sale {
+    background-color: #ffcccc;
+}
+
+.load-more-button {
+    padding: 10px 20px;
+    background-color: #e63946;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 10px auto;
+    width: 100%;
+}
+
+.load-more-button:hover {
+    background-color: #d62839;
+}
+
+.checkbox:hover {
+    transform: scale(1.1);
+}
+
+.checkbox:checked {
+    transform: scale(1.5);
+}
+
+.checkbox-label {
+    cursor: pointer;
+}
